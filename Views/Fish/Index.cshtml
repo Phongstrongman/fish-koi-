@@ -1,4 +1,4 @@
-﻿@model List<Fish>
+﻿
 
 <h2>Danh sách cá</h2>
 
@@ -11,13 +11,6 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var fish in Model)
-        {
-            <tr>
-                <td>@fish.Id</td>
-                <td>@fish.Name</td>
-                <td>@fish.Species</td>
-            </tr>
-        }
+        
     </tbody>
 </table>

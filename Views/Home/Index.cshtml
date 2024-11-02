@@ -132,3 +132,29 @@
 			</div>
 		</div>
 	</div>
+
+	@model IEnumerable<NguoiDung>
+
+<h2>Danh sách Người Dùng</h2>
+<table>
+	<tr>
+		<th>Mã Người Dùng</th>
+		<th>Tên Đăng Nhập</th>
+		<th>Email</th>
+		<th>Số Điện Thoại</th>
+		<th>Vai Trò</th>
+		<th>Ngày Tạo</th>
+	</tr>
+	@foreach (var nguoiDung in Model)
+	{
+		<tr>
+			<td>@nguoiDung.MaNguoiDung</td>
+			<td>@nguoiDung.TenDangNhap</td>
+			<td>@nguoiDung.Email</td>
+			<td>@nguoiDung.SoDienThoai</td>
+			<td>@nguoiDung.VaiTro</td>
+			<td>@nguoiDung.NgayTao</td>
+		</tr>
+	}
+</table>
+

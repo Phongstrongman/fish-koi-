@@ -8,20 +8,26 @@ namespace Managerment_fish.Controllers
 	{
 		private readonly ILogger<HomeController> _logger;
 
-		public HomeController(ILogger<HomeController> logger)
-		{
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
+        {
 			_logger = logger;
-		}
+            _context = context;
+        }
 
 		public IActionResult Index()
 		{
-			return View();
+
+			var nguoiDungs = _context.NguoiDung.ToList();
+			return View(nguoiDungs);
 		}
 
 		public IActionResult Privacy()
 		{
 			return View();
 		}
+
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()

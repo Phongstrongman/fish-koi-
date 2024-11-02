@@ -1,4 +1,10 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Managerment_fish.Models;
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+	options.UseSqlServer(builder.Configuration.GetConnectionString("FishKoiDB")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -62,5 +68,11 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: " Privacy Policy",
     pattern: "{controller= PrivacyPolicy}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "Login",
+    pattern: "{controller=Login}/{action=Index}");
+
+
 app.Run();
 
